@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>服务创建</title>
+    {% include 'base.html' %}
+</head>
+<body>
+    <div id="sales_update" class="easyui-dialog" title="修改营销机会" style="width:700px;height:450px;">
+    	<form id="update" method="post">
+			<input type="hidden" id="ids" name="idss" />
+			<table cellpadding="2">
+				<tr>
+					<td style="padding-right: 10px">客户名称</td>
+					<td>
+						<input type="hidden" id="update_customerName_hidden" name="customerName">
+						<select  id="update_customer_select" name="customerId" style="width: 173px">
+						</select>
+						<span style="color: red;padding-left: 10px">*</span>
+					</td>
+					<td style="padding-left: 70px;padding-right: 10px">机会来源</td>
+					<td><input id="update_chanceSource" name="chanceSource"/></td>
+				</tr>
+				<tr>
+					<td style="padding-right: 10px">联系人</td>
+					<td>
+						<input type="hidden" id="update_linkManName_hidden" name="linkMan">
+						<select onchange="update_phone()"  name="linkMan" id="update_linkman_select" style="width: 173px"></select>
+						<span style="color: red;padding-left: 10px">*</span>
+					</td>
+					<td style="padding-left: 70px;padding-right: 10px">联系电话</td>
+					<td>
+						<input readonly id="update_linkPhone" name="linkPhone"/>  <!-- readonly为只读标记 -->
+					</td>
+				</tr>
+				<tr>
+					<td style="padding-right: 10px">成功几率(%)</td>
+					<td colspan="3"><input id="update_cgjl" name="cgjl"/><span style="color: red;padding-left: 10px">*</span></td>
+				</tr>
+				<tr>
+					<td style="padding-right: 10px">概要</td>
+					<td colspan="3"><input id="update_overview" name="overview" style="width: 500px"/></td>
+				</tr>
+				<tr>
+					<td style="padding-right: 10px">机会描述</td>
+					<td colspan="3"><textarea id="update_description" name="description" style="width: 498px;height: 100px"></textarea></td>
+				</tr>
+				<tr>
+					<td style="padding-right: 10px">指派给</td>
+					<td colspan="3">
+						<input type="hidden" id="update_assignName_hidden" name="assignMan">
+						<select  id="update_username_select" style="width: 173px"></select>
+						<span style="color: red;padding-left: 10px">*</span>
+					</td>
+				</tr>
+			</table>
+		</form>
+	</div>
+</body>
+</html>

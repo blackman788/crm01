@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>营销机会管理</title>
+	{% include 'base.html' %}
+	<link rel="stylesheet" type="text/css" href="{% static 'system/jquery-easyui-1.3.3/themes/default/easyui.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'system/jquery-easyui-1.3.3/themes/icon.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'system/jquery-easyui-1.3.3/demo/demo.css' %}">
+	
+</head>
+<body>
+	<div id="inquirie" class="easyui-panel" title="客户计划变动" style="width:700px;height:450px;">
+    	<form id="DEV" method="get">
+			<table cellpadding="2">
+				<tr>
+					<td style="padding-right: 10px">客户名称</td>
+					<td>
+						<input type="text">
+					</td>
+					<td style="padding-left: 70px;padding-right: 10px">机会来源</td>
+					<td><input name="chanceSource"/></td>
+				</tr>
+				<tr>
+					<td style="padding-right: 10px">联系人</td>
+					<td>
+						<input type="text">
+					</td>
+					<td style="padding-left: 70px;padding-right: 10px">联系电话</td>
+					<td>
+						<input readonly id="linkPhone" name="linkPhone"/>  <!-- readonly为只读标记 -->
+					</td>
+				</tr>
+				<tr>
+					<td style="padding-right: 10px">成功几率(%)</td>
+					<td colspan="3"><input name="cgjl"/></td>
+				</tr>
+				<tr>
+					<td style="padding-right: 10px">概要</td>
+					<td colspan="3"><input name="overview" style="width: 500px"/></td>
+				</tr>
+				<tr>
+					<td style="padding-right: 10px">机会描述</td>
+					<td colspan="3"><textarea id="description" name="description" style="width: 498px;height: 100px"></textarea></td>
+				</tr>
+				<tr>
+					<td style="padding-right: 10px">指派给</td>
+					<td colspan="3">
+						<input type="text">
+					</td>
+					<
+				</tr>
+				<!-- <tr>
+					<td style="padding-right: 10px">创建人</td>
+					<td colspan="3">
+						<input type="text">
+					</td>
+					<td style="padding-right: 10px">创建时间</td>
+					<td colspan="3">
+						<input type="text">
+					</td>
+				</tr> -->
+			</table>
+		</form>
+	</div>
+</body>
+
+</html>

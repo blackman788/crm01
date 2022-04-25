@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>服务创建</title>
+    {% include 'base.html' %}
+</head>
+<body>
+    <div id="tb">
+		<a id="btn"  href="javascript:sales_add();" class="easyui-linkbutton" data-options="iconCls:'icon-add',plain:true">添加</a>
+		<a id="btn" href="javascript:open_sales_update();" class="easyui-linkbutton" data-options="iconCls:'icon-edit',plain:true">修改</a>
+		<a id="btn" href="javascript:delete_sales();" class="easyui-linkbutton" data-options="iconCls:'icon-remove',plain:true">删除</a>
+		<div>
+			客户名称&nbsp;&nbsp;<input id="customerName" />
+			&nbsp;&nbsp;概要&nbsp;&nbsp;<input id="overview" />
+			&nbsp;&nbsp;创建人&nbsp;&nbsp;<input id="createMan"
+											>
+			&nbsp;&nbsp;分配状态&nbsp;&nbsp;
+			<select class="easyui-combobox" id="state" style="width: 100px">
+				<option value="">全部</option>
+				<option value="0">未分配</option>
+				<option value="1">已分配</option>
+			</select>&nbsp;&nbsp;
+			<a id="btn"  onclick="inquirie()" class="easyui-linkbutton"
+			   data-options="iconCls:'icon-search'">查询</a>
+		</div>
+	</div>
+</body>
+</html>

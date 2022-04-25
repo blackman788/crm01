@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>营销机会管理</title>
+	{% include 'base.html' %}
+	<link rel="stylesheet" type="text/css" href="{% static 'system/jquery-easyui-1.3.3/themes/default/easyui.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'system/jquery-easyui-1.3.3/themes/icon.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'system/jquery-easyui-1.3.3/demo/demo.css' %}">
+	
+</head>
+<body>
+	<div id="inquirie" class="easyui-panel" title="销售机会信息" style="width:700px;height:450px;">
+    	<form id="DEV" method="get">
+			<table cellpadding="2">
+				<tr>
+					<td style="padding-right: 10px">客户名称</td>
+					<td>
+						<input type="text" readonly value="{{ dt.name|default:'' }}">
+					</td>
+					<td style="padding-left: 70px;padding-right: 10px">机会来源</td>
+					<td><input type="text" readonly value="{{ dt.chance_source|default:'' }}"/></td>
+				</tr>
+				<tr>
+					<td style="padding-right: 10px">联系人</td>
+					<td>
+						<input type="text" readonly value="{{ dt.linkName|default:'' }}" />
+					</td>
+					<td style="padding-left: 70px;padding-right: 10px">联系电话</td>
+					<td>
+						<input type="text" readonly value="{{ dt.linkPhone|default:'' }}"/>  <!-- readonly为只读标记 -->
+					</td>
+				</tr>
+				<tr>
+					<td style="padding-right: 10px">成功几率(%)</td>
+					<td colspan="3"><input type="text" readonly value="{{ dt.cgjl|default:'' }}" /></td>
+				</tr>
+				<tr>
+					<td style="padding-right: 10px">概要</td>
+					<td colspan="3"><input type="text" readonly style="width: 500px" value="{{ dt.overview|default:'' }}"/></td>
+				</tr>
+				<tr>
+					<td style="padding-right: 10px">机会描述</td>
+					<td colspan="3"><textarea readonly style="width: 498px;height: 100px" >{{ dt.description|default:'' }}</textarea></td>
+				</tr>
+				<tr>
+					<td style="padding-right: 10px">指派给</td>
+					<td>
+						<input type="text" readonly value="{{ dt.assignMan|default:'' }}" />
+					</td>
+					<td style="padding-left: 70px;padding-right: 10px">指派时间</td>
+					<td><input type="text"  readonly value="{{ dt.assignTime|date:'Y-m-d H-i-s' }}"/></td>
+				</tr>
+				<tr>
+					<td style="padding-right: 10px">创建人</td>
+					<td>
+						<input type="text" readonly value="{{ dt.createMan|default:'' }}" />
+					</td>
+					<td style="padding-left: 70px;padding-right: 10px">创建时间</td>
+					<td><input  type="text" readonly value="{{ dt.createDate|date:'Y-m-d H-i-s' }}" /></td>
+				</tr>
+			</table>
+		</form>
+	</div>
+	<table id="tg" class="easyui-datagrid" style="width:700px;height:450px;" title="销售机会信息" >
+		<thead>
+			<tr>
+				<th data-options="field:'id',width:140">编号</th>
+				<th data-options="field:'plan_date',width:184">日期</th>
+				<th data-options="field:'plan_item',width:180">计划内容</th>
+				<th data-options="field:'exe_affect',width:90">执行效果</th>
+			</tr>
+		</thead>
+	</table>
+	<div id="tt">
+		<a id="btn"  href="#"  class="easyui-linkbutton" data-options="iconCls:'icon-add',plain:true">添加计划</a>
+		<a id="btn" href="#"  class="easyui-linkbutton" data-options="iconCls:'icon-dndo',plain:true">取消计划</a>
+		<a id="btn" href="#" class="easyui-linkbutton" data-options="iconCls:'icon-save',plain:true">保存计划</a>
+		<a id="btn" href="#"  class="easyui-linkbutton" data-options="iconCls:'icon-remove',plain:true">删除计划</a>
+		<a id="btn" href="#"  class="easyui-linkbutton" data-options="iconCls:'icon-ok',plain:true">开发成功</a>
+		<a id="btn" href="#"  class="easyui-linkbutton" data-options="iconCls:'icon-zzkf',plain:true">开发失败</a>
+	</div>
+</body>
+
+</html>

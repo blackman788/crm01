@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>服务创建</title>
+    {% include 'base.html' %}
+</head>
+<body>
+    <div id="p" class="easyui-panel" title="服务创建"
+     style="width:700px;height:500px;padding:10px;background:#fafafa;"
+     data-options="iconCls:'icon-save',closable:true,
+                collapsible:true,minimizable:false,closable:false">
+    <br/><br/>
+    <form id="fm" method="post">
+        {% csrf_token %}
+        <label style="padding-right: 10px;padding-left: 30px">服务类型</label>
+        <input id="serveType" name="serveType" class="easyui-combobox"
+               data-options="valueField:'dataDicValue',textField:'dataDicValue',value:'请选择服务类型',editable:false,
+               url:'{% url 'server:inquirie_server_type'%}?type=服务类型',method:'get'">
+        <label style="padding-right: 10px;padding-left: 10px">客户名称</label>
+        <input id="customer" name="customer" class="easyui-combobox"
+               data-options="valueField:'name',textField:'name',value:'请选客户名称',editable:false,
+               url:'{% url 'server:inquirie_server_name'%}',method:'get'"><br/><br/>
+        <label style="padding-right: 38px;padding-left: 30px">概要</label>
+        <input id="overview" name="overview" class="easyui-validatebox" data-options="required:true"
+               style="width: 414px"/><br/><br/>
+        <label style="padding-right: 14px;padding-left: 30px; margin-top: 10px;">服务请求</label>
+        <textarea id="serviceRequest"  name="serviceRequest" cols="40" rows="15" style="vertical-align:middle;resize: none;"></textarea>
+    </form>
+
+    <div style="padding-right: 60px;margin-top:20px">
+        <a  style="float: right" class="easyui-linkbutton" data-options="iconCls:'icon-undo'">重置</a>
+        <a id="save_btn"  style="float: right" class="easyui-linkbutton"
+           data-options="iconCls:'icon-save'">保存</a>
+    </div>
+</div>
+<script type="text/javascript" src="{% static '/js/server/.js' %}"></script>
+</body>
+</html>
